@@ -1,0 +1,74 @@
+<html>
+
+<head>
+    <title>Boilerplate for Flask & D3</title>
+    <!-- D3.js CDN source -->
+    <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+    <!-- jQuery -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+    <!-- custom css & js files -->
+    <script src="static/js/dashboard.js"></script>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+
+<body>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title"><b>World's Biggest Data Breaches</b></h3>
+        </div>
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <script>
+        var freqData = [
+            { State: '2004', freq: { hacked: 0, Lost: 0, InsideJob: 92000000, Others: 0 } }
+            , { State: '2005', freq: { hacked: 40000000, Lost: 4100000, InsideJob: 0, Others: 125000 } }
+            , { State: '2006', freq: { hacked: 4000000, Lost: 43700000, InsideJob: 2600000, Others: 20000000 } }
+            , { State: '2007', freq: { hacked: 106100000, Lost: 31960000, InsideJob: 18226405, Others: 0 } }
+            , { State: '2008', freq: { hacked: 24500000, Lost: 18916500, InsideJob: 11100000, Others: 11550000 } }
+            , { State: '2009', freq: { hacked: 176521778, Lost: 80290788, InsideJob: 0, Others: 0 } }
+            , { State: '2010', freq: { hacked: 5976400, Lost: 9214156, InsideJob: 903000, Others: 43000 } }
+            , { State: '2011', freq: { hacked: 198735838, Lost: 21450838, InsideJob: 2500000, Others: 6276811 } }
+            , { State: '2012', freq: { hacked: 467760000, Lost: 800000, InsideJob: 208200000, Others: 27766024 } }
+            , { State: '2013', freq: { hacked: 236376000, Lost: 4300000, InsideJob: 3700000, Others: 7926000 } }
+            , { State: '2014', freq: { hacked: 892870000, Lost: 0, InsideJob: 20000000, Others: 128000 } }
+            , { State: '2015', freq: { hacked: 187197000, Lost: 0, InsideJob: 0, Others: 195450000 } }
+            , { State: '2016', freq: { hacked: 458461160, Lost: 0, InsideJob: 0, Others: 68614115 } }
+        ];
+        var dataGroup = {
+            labels: [
+                '2007', '2009', '2011',
+                '2013', '2015'
+            ],
+            series: [
+                {
+                    label: 'goverment',
+                    values: [31249000, 84460378, 5998461, 2076000, 26100000]
+                },
+                {
+                    label: 'Otros',
+                    values: [123437405, 140352188, 124801594, 68776000, 13590000]
+                },
+                {
+                    label: 'web',
+                    values: [1600000, 32000000, 93262000, 18145000, 342957000]
+                },
+            ]
+        };
+
+        dashboard('#dashboard', freqData);
+        dashboard1(dataGroup);
+        drawBars();
+    </script>
+</body>
+
+</html>
+
+
+
